@@ -7,8 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cinemas.neon.neonreservationservice.dao.SeatReservedDao;
-import
- com.cinemas.neon.neonreservationservice.entity.SeatReserved;
+import com.cinemas.neon.neonreservationservice.entity.SeatReserved;
 
 @Service
 public class SeatReservedService {
@@ -18,6 +17,10 @@ public class SeatReservedService {
 
     public List<SeatReserved> getSeatsByScreenId(UUID id) {
         return seatDao.findByShowId(id);
+    }
+
+    public SeatReserved saveSeatReserved(SeatReserved seatReserved) {
+        return seatDao.save(seatReserved);
     }
 
 }

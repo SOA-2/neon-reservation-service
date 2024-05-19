@@ -1,10 +1,14 @@
 package com.cinemas.neon.neonreservationservice.entity;
 
+import java.math.BigInteger;
 import java.sql.Time;
 import java.util.UUID;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -15,6 +19,8 @@ import jakarta.persistence.Table;
 public class Reservation {
 
     @Id
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
@@ -29,7 +35,7 @@ public class Reservation {
     private Time date;
 
     @Column(name = "special_code")
-    private String specialCode;
+    private BigInteger specialCode;
 
     @Column(name = "discount")
     private Double discount;
@@ -69,11 +75,11 @@ public class Reservation {
         this.date = date;
     }
 
-    public String getSpecialCode() {
+    public BigInteger getSpecialCode() {
         return specialCode;
     }
 
-    public void setSpecialCode(String specialCode) {
+    public void setSpecialCode(BigInteger specialCode) {
         this.specialCode = specialCode;
     }
 
