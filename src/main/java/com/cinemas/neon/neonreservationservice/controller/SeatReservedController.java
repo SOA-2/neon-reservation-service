@@ -24,4 +24,9 @@ public class SeatReservedController {
         return seatService.getSeatsByScreenId(id);
     }
 
+    @GetMapping(path = "/seats/{id}")
+    public List<SeatReserved> getSeatsReserved(@PathVariable UUID id) {
+        return seatService.getSeatsReserved(id);
+    }
+
 }

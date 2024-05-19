@@ -16,4 +16,7 @@ public interface SeatReservedDao extends JpaRepository<SeatReserved, UUID> {
     @Query("SELECT sr from SeatReserved sr INNER JOIN sr.reservation r where r.show.id = :showId")
     public List<SeatReserved> findByShowId(@Param("showId") UUID showId);
 
+    @Query("SELECT sr from SeatReserved sr INNER JOIN sr.reservation r where r.id = :reservationId")
+    public List<SeatReserved> findByReservationId(@Param("reservationId") UUID reservationId);
+
 }

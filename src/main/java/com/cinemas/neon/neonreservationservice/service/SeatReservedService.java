@@ -13,14 +13,18 @@ import com.cinemas.neon.neonreservationservice.entity.SeatReserved;
 public class SeatReservedService {
 
     @Autowired
-    SeatReservedDao seatDao;
+    SeatReservedDao seatReservedDao;
 
     public List<SeatReserved> getSeatsByScreenId(UUID id) {
-        return seatDao.findByShowId(id);
+        return seatReservedDao.findByShowId(id);
+    }
+
+    public List<SeatReserved> getSeatsReserved(UUID id) {
+        return seatReservedDao.findByReservationId(id);
     }
 
     public SeatReserved saveSeatReserved(SeatReserved seatReserved) {
-        return seatDao.save(seatReserved);
+        return seatReservedDao.save(seatReserved);
     }
 
 }
