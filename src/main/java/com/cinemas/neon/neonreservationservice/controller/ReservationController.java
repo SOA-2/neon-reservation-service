@@ -1,5 +1,6 @@
 package com.cinemas.neon.neonreservationservice.controller;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -25,6 +26,11 @@ public class ReservationController {
     @PostMapping(path = "")
     public Reservation saveReservation(@RequestBody ReservationWhitSeats reservationWhitSeats) {
         return reservationService.saveReservation(reservationWhitSeats);
+    }
+
+    @GetMapping(path = "/user/{id}")
+    public List<Reservation> getUserReservations(@PathVariable UUID id) {
+        return reservationService.getUserReservations(id);
     }
 
     @GetMapping(path = "/{id}")

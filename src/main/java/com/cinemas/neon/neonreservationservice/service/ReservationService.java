@@ -1,5 +1,6 @@
 package com.cinemas.neon.neonreservationservice.service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -23,6 +24,10 @@ public class ReservationService {
 
     public Optional<Reservation> getReservation(UUID id) {
         return reservationDao.findById(id);
+    }
+
+    public List<Reservation> getUserReservations(UUID id) {
+        return reservationDao.findByUser(id);
     }
 
     @Transactional
